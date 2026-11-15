@@ -6,7 +6,7 @@
 <title>Thiệp nhà gái – Ngọc Lan &amp; Quang Huy – 29.11.2026</title>
 <meta name="description" content="Trân trọng kính mời bạn dự tiệc cưới lúc 09:00 tại Vườn Hoa Mương Đan Hoài và lễ Vu Quy lúc 13:00 tại tư gia nhà gái, Chủ Nhật 29.11.2026.">
 <meta property="og:title" content="Thiệp nhà gái – Ngọc Lan &amp; Quang Huy – 29.11.2026">
-<meta property="og:image" content="anh/bia.jpg?v=optimized-20261115-1909">
+<meta property="og:image" content="anh-nha-gai/bia.jpg?v=optimized-20261115-1920">
 <meta name="theme-color" content="#6b1012">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -108,7 +108,7 @@ section{padding:72px 26px;text-align:center;position:relative}
 .sub{font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--muted);margin-bottom:30px}
 .cloud{display:block;width:170px;height:28px;margin:6px auto 22px;color:var(--gold)}
 .dark{color:var(--ink)}
-.dark::before{content:"";position:absolute;inset:0;z-index:-1;background:url(anh/nen-lau-dai.jpg?v=optimized-20261115-1909) center/cover;opacity:.16;
+.dark::before{content:"";position:absolute;inset:0;z-index:-1;background:url(anh-nha-gai/nen-lau-dai.jpg?v=optimized-20261115-1920) center/cover;opacity:.16;
   -webkit-mask-image:linear-gradient(transparent,#000 22%,#000 78%,transparent);mask-image:linear-gradient(transparent,#000 22%,#000 78%,transparent)}
 .dark{isolation:isolate}
 .floral{background:transparent}
@@ -157,16 +157,25 @@ section{padding:72px 26px;text-align:center;position:relative}
 .invite-text{font-family:var(--serif);font-style:italic;font-size:1.1rem;color:var(--muted);margin:34px 0 6px}
 .couple-names{font-family:var(--script);font-size:clamp(1.8rem,8.5vw,2.5rem);color:var(--red);line-height:1.25}
 .couple-names span{white-space:nowrap}
-.couple{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:34px;position:relative}
-.arch{position:relative;border-radius:200px 200px 10px 10px;padding:7px;background:var(--foil);background-size:200% 100%;animation:shine 7s linear infinite;box-shadow:0 14px 30px rgba(94,15,16,.25)}
-.arch-wrap{border-radius:194px 194px 6px 6px;overflow:hidden}
-.arch img{width:100%;aspect-ratio:3/4.2;object-fit:cover;transition:transform 1.2s}
-.arch:hover img{transform:scale(1.05)}
-.person .role{font-size:.66rem;letter-spacing:.32em;color:var(--gold-d);margin-top:14px;text-transform:uppercase}
-.person .nm{font-family:var(--script);font-size:2rem;color:var(--red);line-height:1.2}
+.couple{margin-top:34px;position:relative}
+.couple-stage{position:relative;max-width:330px;margin:0 auto;transition:max-width .4s}
+.couple-stage.is-landscape{max-width:392px}
+.arch{position:relative;border-radius:210px 210px 14px 14px;padding:7px;background:var(--foil);background-size:200% 100%;animation:shine 7s linear infinite;box-shadow:0 16px 36px rgba(94,15,16,.24)}
+.couple-stage.is-landscape .arch{border-radius:150px 150px 14px 14px}
+.arch-wrap{position:relative;border-radius:203px 203px 9px 9px;overflow:hidden}
+.couple-stage.is-landscape .arch-wrap{border-radius:143px 143px 9px 9px}
+.arch-wrap::after{content:"";position:absolute;inset:7px;border:1px solid rgba(255,241,196,.55);border-radius:196px 196px 5px 5px;pointer-events:none}
+.couple-stage.is-landscape .arch-wrap::after{border-radius:136px 136px 5px 5px}
+.arch img{width:100%;aspect-ratio:3/4.25;object-fit:cover;object-position:center 55%;transition:transform 1.2s}
+.couple-stage.is-landscape .arch img{aspect-ratio:4/3.15;object-position:center 26%}
+.arch:hover img{transform:scale(1.04)}
+.couple-stage .hy-mid{position:absolute;left:50%;bottom:0;transform:translate(-50%,50%);z-index:3;width:54px;height:54px;border-radius:50%;background:var(--red);color:var(--gold-l);display:grid;place-items:center;font-family:serif;font-size:25px;border:2px solid var(--gold);box-shadow:0 6px 18px rgba(0,0,0,.28),0 0 0 5px var(--cream);animation:beat 1.8s ease-in-out infinite}
+@keyframes beat{0%,100%{transform:translate(-50%,50%) scale(1)}15%{transform:translate(-50%,50%) scale(1.12)}30%{transform:translate(-50%,50%) scale(1)}45%{transform:translate(-50%,50%) scale(1.08)}}
+.couple-meta{display:grid;grid-template-columns:1fr 1px 1fr;column-gap:14px;align-items:center;margin-top:38px}
+.couple-meta .vline{background:linear-gradient(transparent,var(--gold),transparent);height:48px}
+.person .role{font-size:.66rem;letter-spacing:.32em;color:var(--gold-d);text-transform:uppercase}
+.person .nm{font-family:var(--script);font-size:2.05rem;color:var(--red);line-height:1.2;margin-top:2px}
 .person .bio{font-size:.78rem;color:var(--muted)}
-.couple .hy-mid{position:absolute;left:50%;top:38%;transform:translate(-50%,-50%);z-index:2;width:56px;height:56px;border-radius:50%;background:var(--red);color:var(--gold-l);display:grid;place-items:center;font-family:serif;font-size:26px;border:2px solid var(--gold);box-shadow:0 6px 18px rgba(0,0,0,.3);animation:beat 1.8s ease-in-out infinite}
-@keyframes beat{0%,100%{transform:translate(-50%,-50%) scale(1)}15%{transform:translate(-50%,-50%) scale(1.12)}30%{transform:translate(-50%,-50%) scale(1)}45%{transform:translate(-50%,-50%) scale(1.08)}}
 
 /* ============ Events ============ */
 .ev{position:relative;padding:34px 22px 28px;margin-bottom:22px;border-radius:6px;background:rgba(255,253,247,.88);box-shadow:0 12px 30px rgba(120,80,40,.12)}
@@ -360,18 +369,22 @@ footer p{font-size:.88rem;opacity:.9}
       <div class="vline"></div>
       <div class="family-side groom-side"><h4>Nhà Trai</h4><div data-k="groom.father"></div><div data-k="groom.mother"></div><div class="home" data-k="groom.home"></div></div>
     </div>
-    <p class="invite-text" data-anim="up">Trân trọng báo tin lễ Vu Quy của hai con chúng tôi</p>
+    <p class="invite-text" data-anim="up">Trân trọng kính mời đến dự lễ Vu Quy của hai con chúng tôi</p>
     <div class="couple-names" data-anim="zoom"><span data-k="bride.fullName"></span><br>&amp;<br><span data-k="groom.fullName"></span></div>
     <svg class="cloud"><use href="#cloudline"/></svg>
     <div class="couple">
-      <div class="person" data-anim="left">
-        <div class="arch"><div class="arch-wrap"><img id="brideImg" alt="Cô dâu"></div></div>
-        <div class="role" data-k="bride.label"></div><div class="nm" data-k="bride.name"></div><div class="bio" data-k="bride.bio"></div>
+      <div class="couple-stage" id="coupleStage" data-anim="zoom">
+        <div class="arch"><div class="arch-wrap"><img id="coupleImg" alt="Cô dâu &amp; Chú rể"></div></div>
+        <div class="hy-mid">囍</div>
       </div>
-      <div class="hy-mid">囍</div>
-      <div class="person" data-anim="right">
-        <div class="arch"><div class="arch-wrap"><img id="groomImg" alt="Chú rể"></div></div>
-        <div class="role" data-k="groom.label"></div><div class="nm" data-k="groom.name"></div><div class="bio" data-k="groom.bio"></div>
+      <div class="couple-meta">
+        <div class="person" data-anim="left">
+          <div class="role" data-k="bride.label"></div><div class="nm" data-k="bride.name"></div><div class="bio" data-k="bride.bio"></div>
+        </div>
+        <div class="vline"></div>
+        <div class="person" data-anim="right">
+          <div class="role" data-k="groom.label"></div><div class="nm" data-k="groom.name"></div><div class="bio" data-k="groom.bio"></div>
+        </div>
       </div>
     </div>
   </section>
@@ -455,11 +468,12 @@ footer p{font-size:.88rem;opacity:.9}
    ===================================================================== */
 const WEDDING = {
   groom: { fullName:"Nguyễn Đào Quang Huy", name:"Quang Huy", short:"Quang Huy", label:"Chú rể", bio:"",
-           father:"Ông Nguyễn Văn Quang", mother:"Bà Ngô Thị Tâm", home:"", photo:"anh/chu-re.jpg?v=optimized-20261115-1909" },
+           father:"Ông Nguyễn Văn Quang", mother:"Bà Ngô Thị Tâm", home:"" },
   bride: { fullName:"Nguyễn Thị Ngọc Lan", name:"Ngọc Lan", short:"Ngọc Lan", label:"Cô dâu", bio:"",
-           father:"", mother:"Bà Vũ Thị Duyên", home:"", photo:"anh/co-dau.jpg?v=optimized-20261115-1909" },
-  heroPhoto: "anh/bia.jpg?v=optimized-20261115-1909",
-  endPhoto:  "anh/ket-thiep.jpg?v=optimized-20261115-1909",
+           father:"", mother:"Bà Vũ Thị Duyên", home:"" },
+  couplePhoto: "anh-nha-gai/cap-doi.jpg?v=optimized-20261115-2223",   // 1 ảnh chung của cô dâu & chú rể (.jpg hoặc .JPG)
+  heroPhoto:   "anh-nha-gai/bia.jpg?v=optimized-20261115-1920",
+  endPhoto:    "anh-nha-gai/ket-thiep.jpg?v=optimized-20261115-1920",
   weddingDate: "2026-11-29T09:00:00+07:00",     // giờ bắt đầu tiệc tại Hà Nội
 
 
@@ -475,10 +489,10 @@ const WEDDING = {
   mapQuery: "21.110078,105.721385",
   mapLink: "https://maps.app.goo.gl/QvNApnNu3ks9Ltfi9",
 
-  // Ảnh trong khung trình chiếu tự chạy: tự động hiện đủ anh/album-1 ... album-n (.jpg hoặc .JPG)
-  albumPrefix: "anh/album-",
+  // Ảnh trong khung trình chiếu tự chạy: tự động hiện đủ anh-nha-gai/album-1 ... album-n (.jpg hoặc .JPG)
+  albumPrefix: "anh-nha-gai/album-",
   albumExts: ["jpg", "JPG"],
-  albumVersion: "optimized-20261115-1909",
+  albumVersion: "optimized-20261115-2223",
   albumMax: 200,
   slideSeconds: 4.5,
 
@@ -510,7 +524,16 @@ const guest = params.get('to'); if (guest) $('#guestName').textContent = guest;
 document.querySelectorAll('[data-k]').forEach(el => { const v = get(WEDDING, el.dataset.k); if (v) el.textContent = v; });
 $('#hero').style.setProperty('--hero', `url("${WEDDING.heroPhoto}")`);
 $('#endPh').style.setProperty('--end', `url("${WEDDING.endPhoto}")`);
-$('#groomImg').src = WEDDING.groom.photo; $('#brideImg').src = WEDDING.bride.photo;
+(function(){
+  const img = $('#coupleImg'), stage = $('#coupleStage'), src = WEDDING.couplePhoto || '';
+  img.onload = () => stage.classList.toggle('is-landscape', img.naturalWidth > img.naturalHeight * 1.05);
+  img.onerror = () => {
+    if (img.dataset.retried) return;
+    img.dataset.retried = '1';
+    img.src = /\.jpg(?=\?|$)/.test(src) ? src.replace(/\.jpg(?=\?|$)/, '.JPG') : src.replace(/\.JPG(?=\?|$)/, '.jpg');
+  };
+  img.src = src;
+})();
 const wd = new Date(WEDDING.weddingDate);
 const [weddingYear, weddingMonth, weddingDay] = WEDDING.events[0].date.split('-').map(Number);
 $('#heroDate').textContent = `${pad(weddingDay)}.${pad(weddingMonth)}.${weddingYear}`;
@@ -609,7 +632,7 @@ $('#mapBtn').href = WEDDING.mapLink || `https://www.google.com/maps/search/?api=
       if (image) addSlide(image);
     }
   } else {
-    const prefix = WEDDING.albumPrefix || 'anh/album-';
+    const prefix = WEDDING.albumPrefix || 'anh-nha-gai/album-';
     const exts = WEDDING.albumExts || ['jpg', 'JPG'];
     const ver = WEDDING.albumVersion ? '?v=' + encodeURIComponent(WEDDING.albumVersion) : '';
     const max = WEDDING.albumMax || 200;
