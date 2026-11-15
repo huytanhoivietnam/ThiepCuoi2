@@ -6,7 +6,7 @@
 <title>Thiệp nhà gái – Ngọc Lan &amp; Quang Huy – 29.11.2026</title>
 <meta name="description" content="Trân trọng kính mời bạn dự tiệc cưới lúc 09:00 tại Vườn Hoa Mương Đan Hoài và lễ Vu Quy lúc 13:00 tại tư gia nhà gái, Chủ Nhật 29.11.2026.">
 <meta property="og:title" content="Thiệp nhà gái – Ngọc Lan &amp; Quang Huy – 29.11.2026">
-<meta property="og:image" content="anh/bia.jpg?v=optimized-20261112-2338">
+<meta property="og:image" content="anh/bia.jpg?v=optimized-20261115-1909">
 <meta name="theme-color" content="#6b1012">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -108,7 +108,7 @@ section{padding:72px 26px;text-align:center;position:relative}
 .sub{font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--muted);margin-bottom:30px}
 .cloud{display:block;width:170px;height:28px;margin:6px auto 22px;color:var(--gold)}
 .dark{color:var(--ink)}
-.dark::before{content:"";position:absolute;inset:0;z-index:-1;background:url(anh/nen-lau-dai.jpg?v=optimized-20261112-2338) center/cover;opacity:.16;
+.dark::before{content:"";position:absolute;inset:0;z-index:-1;background:url(anh/nen-lau-dai.jpg?v=optimized-20261115-1909) center/cover;opacity:.16;
   -webkit-mask-image:linear-gradient(transparent,#000 22%,#000 78%,transparent);mask-image:linear-gradient(transparent,#000 22%,#000 78%,transparent)}
 .dark{isolation:isolate}
 .floral{background:transparent}
@@ -455,11 +455,11 @@ footer p{font-size:.88rem;opacity:.9}
    ===================================================================== */
 const WEDDING = {
   groom: { fullName:"Nguyễn Đào Quang Huy", name:"Quang Huy", short:"Quang Huy", label:"Chú rể", bio:"",
-           father:"Ông Nguyễn Văn Quang", mother:"Bà Ngô Thị Tâm", home:"", photo:"anh/chu-re.jpg?v=optimized-20261112-2338" },
+           father:"Ông Nguyễn Văn Quang", mother:"Bà Ngô Thị Tâm", home:"", photo:"anh/chu-re.jpg?v=optimized-20261115-1909" },
   bride: { fullName:"Nguyễn Thị Ngọc Lan", name:"Ngọc Lan", short:"Ngọc Lan", label:"Cô dâu", bio:"",
-           father:"", mother:"Bà Vũ Thị Duyên", home:"", photo:"anh/co-dau.jpg?v=optimized-20261112-2338" },
-  heroPhoto: "anh/bia.jpg?v=optimized-20261112-2338",
-  endPhoto:  "anh/ket-thiep.jpg?v=optimized-20261112-2338",
+           father:"", mother:"Bà Vũ Thị Duyên", home:"", photo:"anh/co-dau.jpg?v=optimized-20261115-1909" },
+  heroPhoto: "anh/bia.jpg?v=optimized-20261115-1909",
+  endPhoto:  "anh/ket-thiep.jpg?v=optimized-20261115-1909",
   weddingDate: "2026-11-29T09:00:00+07:00",     // giờ bắt đầu tiệc tại Hà Nội
 
 
@@ -475,8 +475,11 @@ const WEDDING = {
   mapQuery: "21.110078,105.721385",
   mapLink: "https://maps.app.goo.gl/QvNApnNu3ks9Ltfi9",
 
-  // Ảnh trong khung trình chiếu tự chạy
-  slideshow: Array.from({length:8}, (_, i) => 'anh/album-' + (i + 1) + '.jpg?v='+ 'optimized-20261112-2338'),
+  // Ảnh trong khung trình chiếu tự chạy: tự động hiện đủ anh/album-1 ... album-n (.jpg hoặc .JPG)
+  albumPrefix: "anh/album-",
+  albumExts: ["jpg", "JPG"],
+  albumVersion: "optimized-20261115-1909",
+  albumMax: 200,
   slideSeconds: 4.5,
 
   /* 🎵 NHẠC NỀN – điền 1 trong 3 kiểu:
@@ -556,7 +559,6 @@ $('#mapBtn').href = WEDDING.mapLink || `https://www.google.com/maps/search/?api=
 
 /* ---------- Khung ảnh tự chạy + lời chúc nổi ---------- */
 (async function(){
-  const S = WEDDING.slideshow || [];
   const box=$('#slides'), shine=$('#shine'), dur=(WEDDING.slideSeconds||4.5)*1000;
   box.style.setProperty('--kb', (dur+2000)+'ms');
   const slides = [];
@@ -579,24 +581,47 @@ $('#mapBtn').href = WEDDING.mapLink || `https://www.google.com/maps/search/?api=
   box.addEventListener('touchend',e=>{ const dx=e.changedTouches[0].clientX-sx; if(Math.abs(dx)>40) go(i+(dx<0?1:-1)); });
   box.addEventListener('click',e=>{ if(e.target.closest('.heart-btn, .wish-status'))return; const r=box.getBoundingClientRect(); go(i+(e.clientX-r.left<r.width/3?-1:1)); });
 
-  // Show the first available photo immediately, then preload the rest in order.
-  for (const [index, src] of S.entries()) {
-    const image = await new Promise(resolve => {
+  function loadPhoto(src, index) {
+    return new Promise(resolve => {
       const photo = new Image();
-      photo.alt = 'Khoảnh khắc ' + (index + 1);
+      photo.alt = 'Khoảnh khắc ' + index;
       photo.decoding = 'async';
-      photo.fetchPriority = index === 0 ? 'high' : 'low';
+      photo.fetchPriority = index === 1 ? 'high' : 'low';
       photo.onload = () => resolve(photo);
       photo.onerror = () => resolve(null);
       photo.src = src;
     });
-    if (!image) continue;
+  }
+
+  function addSlide(image) {
     const slide = document.createElement('div');
     slide.className = 'sl';
     slide.append(image);
     box.insertBefore(slide, shine);
     slides.push(slide);
     if (i === -1) go(0);
+  }
+
+  // Show the first available photo immediately, then preload album-1 .. album-n (.jpg / .JPG) in order.
+  if (Array.isArray(WEDDING.slideshow) && WEDDING.slideshow.length) {
+    for (const [index, src] of WEDDING.slideshow.entries()) {
+      const image = await loadPhoto(src, index + 1);
+      if (image) addSlide(image);
+    }
+  } else {
+    const prefix = WEDDING.albumPrefix || 'anh/album-';
+    const exts = WEDDING.albumExts || ['jpg', 'JPG'];
+    const ver = WEDDING.albumVersion ? '?v=' + encodeURIComponent(WEDDING.albumVersion) : '';
+    const max = WEDDING.albumMax || 200;
+    for (let n = 1; n <= max; n++) {
+      let image = null;
+      for (const ext of exts) {
+        image = await loadPhoto(`${prefix}${n}.${ext}${ver}`, n);
+        if (image) break;
+      }
+      if (!image) break;
+      addSlide(image);
+    }
   }
 
 } )();

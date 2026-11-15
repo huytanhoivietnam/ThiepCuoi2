@@ -18,7 +18,7 @@ python -m http.server 8080 --directory dist
 - `dist/index.html`: thiệp nhà trai, tiệc 10:00 và lễ thành hôn 15:00 ngày 29/11/2026.
 - `dist/nha-gai.html`: thiệp nhà gái, tiệc 09:00 và lễ Vu Quy 13:00 ngày 29/11/2026.
 - `dist/loi-chuc.js`: đọc lời chúc từ Sheets và tạo dải lời chúc cuộn liên tục.
-- `dist/anh/`: ảnh đã tối ưu cho web. Album dùng `album-1.jpg` đến `album-8.jpg`. Ảnh bìa, chân dung và ảnh cuối thiệp có tệp riêng.
+- `dist/anh/`: ảnh đã tối ưu cho web. Album tự động nhận lần lượt `album-1` đến `album-n` (đuôi `.jpg` hoặc `.JPG`). Ảnh bìa, chân dung và ảnh cuối thiệp có tệp riêng.
 - `dist/fonts/` và `dist/nhac/`: font và nhạc dùng trong thiệp.
 - `apps-script/Code.gs`: mã Google Apps Script nhận xác nhận tham dự và đọc lời chúc.
 - `thiep-cuoi.html`, `loi-chuc.js` và các thư mục tài nguyên ở thư mục gốc là các tệp nguồn đang lưu trong project. Các ảnh gốc ở `anh/` khác bản đã tối ưu trong `dist/anh/`.
